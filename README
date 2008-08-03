@@ -1,0 +1,7 @@
+This is Opera Widget.
+
+* how to use
+config.xml drop your Opera
+
+* known issue
+- API#get_bundles required username/password (BASIC Authentication)

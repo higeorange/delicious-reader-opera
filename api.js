@@ -143,6 +143,7 @@ var API={
 				}
 			},10);
 		}).error(function(){
+			// username invalid? or BASIC auth(in get_bundles) cancelled?
 			render("items",v_config_form);
 		});
 	}
