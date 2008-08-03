@@ -1,0 +1,90 @@
+#main #log * 
+,ul,li{
+	margin:0;
+	padding:0;
+}
+body {
+	background:#eee;
+	font-size:small;
+	overflow:hidden;
+}
+
+body h1 {
+	font-size:medium;
+	display:inline;
+}
+body h1 #search {
+	float:left;
+	display:inline;
+	padding-right:4px;
+}
+body h1 #status{
+	display:inline;
+	font-size:small;
+	font-weight:normal;
+	padding-left:1ex;
+}
+body #main
+,body #side {
+	overflow:auto;
+	-apple-dashboard-region: dashboard-region(control rectangle 0px 0px 0px 0px);
+	height:300px;
+}
+#main {
+	width:75%;
+	float:right;
+	background:#fff;
+}
+#side {
+	background:#ddd;
+	width:23%;
+	float:left;
+}
+body #main #log {
+	margin:0;
+	padding:0;
+}
+body #main #items li {
+	padding:4px;
+	margin:1ex 0;
+	list-style:none;
+	background:#eef;
+}
+body #main #items li p {
+	margin-top:0.6ex;
+}
+body #main #items  li h2 {
+	font-size:small;
+}
+
+body #side #bundles * {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+body #side #bundles li > p
+,body #side #bundles li > span{
+	background:#ddf;
+}
+body #side #bundles li ul li{
+	cursor:pointer;
+	margin:1ex 0 1ex 1ex;
+}
+body #side #bundles li ul li:hover {
+	background:#d0d0d0;
+}
+body #side #bundles li p {
+	display:inline;
+	cursor:pointer;
+}
+body #side #bundles li span {
+	padding:0 1ex;
+}
+body #side #bundles li span:hover {
+	color:red;
+}
+
+
+body #footer {
+	clear:both;
+}
