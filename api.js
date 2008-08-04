@@ -63,7 +63,11 @@ var API={
 	,get_bundles: function(){
 		// API reserve XML only
 		var url="https://api.del.icio.us/v1/tags/bundles/all";
-		return $.get(url).next(function(data){
+        return $.ajax({
+            url: url
+            ,username:API.username
+            ,password: API.password
+        }).next(function(data) {
 			var result=[];
 			$.each(
 				data.getElementsByTagName("bundle")
@@ -78,9 +82,10 @@ var API={
 			return result;
 		});
 	}
-	,init: function(username){
+	,init: function(username, password){
 		debug(username);
 		API.username=username;
+        API.password=password;
 		render("items",v_common,"loading...");
 		render("bundles",v_common,"loading...");
 		next(function(){

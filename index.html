@@ -47,15 +47,16 @@ next(function(){
 	debug(widget.preferenceForKey("username"));
 	return {
 		username: widget.preferenceForKey("username")
+        ,password: widget.preferenceForKey("password")
 	};
 }).next(function(pref){
-	if(!pref.username){
+    if(!pref.username && !pref.password) {
 		throw "";
 	}
-	return pref.username;
-}).next(function(username){
-	debug(username);
-	API.init(username);
+	return pref;
+}).next(function(pref){
+	debug(pref.username);
+	API.init(pref.username, pref.password);
 }).error(function(){
 	render("items",v_config_form);
 });

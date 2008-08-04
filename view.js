@@ -17,16 +17,20 @@ function v_config_form(j,data){
 	j.empty();
 	var f=$(document.createElement("form"));
 	var ipt=$(document.createElement("input"));
+        ipt.val(API.username || "");
 	var pw=$(document.createElement("input"));
+        pw.attr("type","password").val(API.password || "");
 	var btn=$(document.createElement("input"));
 	btn.attr("type","submit").attr("value","save");
 	f.submit(function(){
 		debug(ipt);
 		debug(ipt.val());
-		widget.setPreferenceForKey(ipt.val(),"username")
-		API.init(ipt.val());
+		widget.setPreferenceForKey(ipt.val(),"username");
+        widget.setPreferenceForKey(pw.val(), "password");
+		API.init(ipt.val(), pw.val());
 	});
-	f.html("delicious account name").append(ipt).append(btn);
+	f.html("delicious account name").append(ipt)
+    .append("<br>").append("delicious username").append(pw).append(btn);
 	j.append(f);
 }
 
@@ -53,6 +57,7 @@ function v_items(j,data){
 }
 
 function v_search(j,data){
+    $(j).empty();
 	var search=$(document.createElement("input"));
 	search.keyup(function(e){
 		debug("search keyup: value="+this.value);
